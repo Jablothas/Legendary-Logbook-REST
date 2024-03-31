@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 $db = new SQLite3('../data.db');
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
