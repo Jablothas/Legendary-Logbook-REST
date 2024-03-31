@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-$db = new SQLite3('../data.db');
+$db = new SQLite3('data.db');
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     if ($action === 'read') {
@@ -55,10 +55,10 @@ function readAllRecords($db) {
     ORDER BY date_end DESC
     ");
 
-    $data = array(); // Initialize an array to store the result
+    $data = array();
     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
-        $data[] = $row; // Append each row to the result array
+        $data[] = $row;
     }
-    echo json_encode($data); // Encode the result array as JSON
+    echo json_encode($data);
 }
 ?>
